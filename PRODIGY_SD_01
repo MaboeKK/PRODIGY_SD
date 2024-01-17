@@ -28,24 +28,25 @@ def tempConverter(temp_unit_var, result_label):
     result_label.config(text = f"Celsius: {tempCels:.2f} \nFahrenheit: {tempFahr:.2f} \nKelvin: {tempKelvin:.2f} K")
 
 window = tk.Tk()
-window.title("Temerature Converter: ")
+window.title("Temerature Converter")
 
-result_label = tk.Label(window, text="")
-result_label.pack()
+result_label = tk.Label(window, text="", font=("Helvetica", 14))
+result_label.pack(pady=10)
 
-entry_label = tk.Label(window, text= "Enter Temperature" )
+entry_label = tk.Label(window, text= "Enter Temperature: ", font = ("Helvetica", 12))
 entry_label.pack()
 
-entry = tk.Entry(window)
+entry = tk.Entry(window, font = ("Helvetica", 12))
 entry.pack()
 
 temp_unit_var = tk.StringVar(window)
 temp_unit_var.set("Celsius")
 unit_options = ["Celsius", "Fahrenheir", "Kelvin"]
 unit_dropdown = tk.OptionMenu(window, temp_unit_var, *unit_options)
-unit_dropdown.pack()
+unit_dropdown.config(font = ("Helvetica", 12))
+unit_dropdown.pack(pady=10)
 
-convertButton = tk.Button(window, text = "Convert",command = lambda: tempConverter(temp_unit_var, result_label))
+convertButton = tk.Button(window, text = "Convert",command = lambda: tempConverter(temp_unit_var, result_label), font = ("Helvetica", 12))
 convertButton.pack()
 
 window.mainloop()
